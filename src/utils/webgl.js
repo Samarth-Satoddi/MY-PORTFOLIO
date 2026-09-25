@@ -1,0 +1,14 @@
+/**
+ * Utility to check WebGL availability in client browser.
+ */
+export function isWebGLAvailable() {
+  try {
+    const canvas = document.createElement('canvas');
+    return Boolean(
+      window.WebGLRenderingContext &&
+        (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+    );
+  } catch {
+    return false;
+  }
+}
